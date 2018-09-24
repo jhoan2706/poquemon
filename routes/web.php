@@ -14,4 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/users/{user}', 'TrainerController@show');
+Route::get('/users/{id}', 'TrainerController@show');
+
+Route::resource('trainers', 'TrainerController');

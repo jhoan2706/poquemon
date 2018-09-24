@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Trainer;
 use Illuminate\Http\Request;
 
 class TrainerController extends Controller {
@@ -21,7 +22,7 @@ class TrainerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        return view('trainers.create');
     }
 
     /**
@@ -31,7 +32,11 @@ class TrainerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
+        $trainer = new Trainer();
+        $trainer->nombre = $request->input('nombre');
+        $trainer->save();
+        return "Saved";
+        //return $request->all();//obtener datos enviados en form
     }
 
     /**
@@ -41,7 +46,7 @@ class TrainerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        //
+        return "This user has the " . $id . " id";
     }
 
     /**
